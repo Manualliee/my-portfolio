@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Skills from "./components/Skills";
+import AboutMe from "./components/AboutMe";
 
 export default function Home() {
   const [showName, setShowName] = useState(false);
@@ -66,6 +67,10 @@ export default function Home() {
           </motion.div>
         )}
       </div>
+
+      <section>
+        <AboutMe />
+      </section>
       {/* Skills section below, scroll to see */}
       <section className="flex justify-center items-center min-h-[100vh]">
         <Skills />
