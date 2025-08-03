@@ -1,16 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { useState, useEffect, useRef } from "react";
+import { AnimatePresence } from "motion/react";
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
+import Navbar from "./components/Navbar";
+import NameSection from "./components/NameSection";
+import Projects from "./components/Projects";
 
 export default function Home() {
   const [showName, setShowName] = useState(false);
   const [showArrow, setShowArrow] = useState(false);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const [atTop, setAtTop] = useState(true);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const nameSectionRef = useRef(null);
 
   useEffect(() => {
     const nameTimer = setTimeout(() => setShowName(true), 3000);
@@ -19,61 +21,52 @@ export default function Home() {
 
   useEffect(() => {
     if (showName) {
-      const arrowTimer = setTimeout(() => setShowArrow(true), 1200);
+      const arrowTimer = setTimeout(() => setShowArrow(true), 5000);
       return () => clearTimeout(arrowTimer);
     }
   }, [showName]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setAtTop(window.scrollY < 10);
+      if (nameSectionRef.current) {
+        const rect = nameSectionRef.current.getBoundingClientRect();
+        const halfHeight = rect.height / 2;
+        setShowNavbar(rect.top < -halfHeight);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main className="relative w-full">
-      {/* Intro section fills the first viewport */}
-      <div
-        style={{
-          height: "100vh",
-          position: "relative",
-        }}
-      >
-        {showName && (
-          <motion.div
-            className="absolute inset-0 flex justify-center items-center z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2 }}
-          >
-            <span className="text-6xl font-bold text-foreground">
-              Manuel F. Venegas
-            </span>
-          </motion.div>
-        )}
-        {showArrow && (
-          <motion.div
-            className="absolute left-1/2 -translate-x-1/2 bottom-16 z-10 flex justify-center"
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: [0, 12, 0] }}
-            transition={{
-              opacity: { duration: 1.2 },
-              y: { duration: 1.2, repeat: Infinity, ease: "easeInOut" },
-            }}
-          >
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 16V4M12 16L6 10M12 16L18 10"
-                stroke="var(--color-accent)"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </motion.div>
-        )}
-      </div>
+      <AnimatePresence>{showNavbar && <Navbar key="navbar" />}</AnimatePresence>
+      {/* Name Section */}
+      <NameSection
+        ref={nameSectionRef}
+        showName={showName}
+        showArrow={showArrow}
+        atTop={atTop}
+      />
 
-      <section>
-        <AboutMe />
+      {/* Consistent Section Layout */}
+      <section className="w-full flex justify-center items-center min-h-[60vh] py-12">
+        <div className="w-full max-w-5xl px-4">
+          <AboutMe />
+        </div>
       </section>
-      {/* Skills section below, scroll to see */}
-      <section className="flex justify-center items-center min-h-[100vh]">
-        <Skills />
+
+      <section className="w-full flex justify-center items-center min-h-[60vh] py-12">
+        <div className="w-full max-w-5xl px-4">
+          <Skills />
+        </div>
+      </section>
+
+      <section className="w-full flex justify-center items-center min-h-[60vh] py-12">
+        <div className="w-full max-w-5xl px-4">
+          <Projects />
+        </div>
       </section>
     </main>
   );

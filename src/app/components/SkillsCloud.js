@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import { FaHtml5, FaReact } from "react-icons/fa";
@@ -7,6 +8,9 @@ import { SiNextdotjs } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa";
+import { GrGraphQl } from "react-icons/gr";
+import { PiFigmaLogoFill } from "react-icons/pi";
+import { TbBrandThreejs } from "react-icons/tb";
 
 // List of icons and their colors
 const icons = [
@@ -21,6 +25,9 @@ const icons = [
   },
   { icon: <FaGithub color="#fff" size={45} />, label: "GitHub" },
   { icon: <FaGitAlt color="#f05032" size={45} />, label: "Git" },
+  { icon: <GrGraphQl color="#e10098" size={45} />, label: "GraphQL" },
+  { icon: <PiFigmaLogoFill color="#f24e1e" size={45} />, label: "Figma" },
+  { icon: <TbBrandThreejs color="#ffffff" size={45} />, label: "Three.js" },
 ];
 
 // Distribute icons evenly on the sphere using spherical coordinates
@@ -39,25 +46,71 @@ function getSpherePositions(count, radius) {
 }
 
 export default function SkillsCloud() {
-  const radius = 2.2; // Sphere radius
+  const radius = 2.2;
   const positions = getSpherePositions(icons.length, radius);
+  const [hovered, setHovered] = useState(null);
 
   return (
-    <div style={{ width: 400, height: 400 }}>
+    <div style={{ width: 400, height: 400, position: "relative" }}>
+      {/* Animated Glow/Aura */}
+      <div
+        className="skills-glow"
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          width: 320,
+          height: 320,
+          transform: "translate(-50%, -50%)",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, #F3EFF5 0%, #058c42 60%, transparent 100%)", // white to green
+          filter: "blur(72px)",
+          opacity: 0.7,
+          zIndex: 0,
+          pointerEvents: "none",
+          animation: "skillsGlowPulse 3s ease-in-out infinite",
+        }}
+      />
       <Canvas camera={{ position: [0, 0, 7], fov: 50 }}>
-        {/* Allow user to rotate the sphere */}
         <OrbitControls enablePan={false} enableZoom={false} />
-        {/* Add a little ambient light */}
-        <ambientLight intensity={0.8} />
-        {/* Place each icon on the sphere */}
-        {icons.map((item, i) => (
+        {positions.map((pos, i) => (
           <Html
             key={i}
-            position={positions[i]}
+            position={pos}
             center
-            style={{ pointerEvents: "auto", userSelect: "none" }}
+            style={{ pointerEvents: "auto", userSelect: "none", zIndex: 2 }}
           >
-            {item.icon}
+            <div
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+            >
+              {icons[i].icon}
+              <span
+                className="skill-label"
+                style={{
+                  marginTop: 8,
+                  padding: "2px 8px",
+                  borderRadius: 6,
+                  background: "rgba(30,30,30,0.85)",
+                  color: "#fff",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                  display: hovered === i ? "block" : "none",
+                  transition: "opacity 0.2s",
+                }}
+              >
+                {icons[i].label}
+              </span>
+            </div>
           </Html>
         ))}
       </Canvas>

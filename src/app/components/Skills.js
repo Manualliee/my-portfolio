@@ -3,15 +3,19 @@ import SkillsCloud from "./SkillsCloud";
 
 export default function Skills() {
   return (
-    <motion.div
+    <motion.section
+      className="w-full min-h-[60vh] py-12"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 60 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ amount: 0.5 }} // triggers when 50% in view
+      viewport={{ amount: 0.5 }}
     >
-      <span className="text-lg font-bold">Skills:</span>
-      <SkillsCloud />
-    </motion.div>
+      <div className="max-w-5xl px-4 flex flex-col justify-center items-center gap-20">
+        <h2>What Can I do?</h2>
+        <div className="flex justify-center items-center w-full h-full">
+          <SkillsCloud />
+        </div>
+      </div>
+    </motion.section>
   );
 }

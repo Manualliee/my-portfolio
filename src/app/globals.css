@@ -9,7 +9,36 @@
 }
 
 body {
+  font-family: var(--font-audiowide), sans-serif;
   background: var(--color-background);
   color: var(--color-foreground);
   min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+h2 {
+  color: var(--color-accent);
+  font-size: 3rem;
+}
+
+h3 {
+  color: var(--color-primary);
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 2.5rem;
+}
+
+/* Show label always on small screens, only on hover for medium+ */
+@media (max-width: 768px) {
+  .skill-label {
+    display: block !important;
+    opacity: 1 !important;
+    position: static !important;
+  }
 }

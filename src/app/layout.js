@@ -1,10 +1,11 @@
-import { Inter } from "next/font/google";
+import { Audiowide } from "next/font/google";
 import "./globals.css";
 import AnimatedDots from "./components/AnimatedDots";
 
-const inter = Inter({
-  variable: "--font-inter",
+const audiowide = Audiowide({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-audiowide",
 });
 
 export const metadata = {
@@ -15,9 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* You can add other meta tags here as needed */}
+      </head>
+      <body className={`${audiowide.variable} antialiased`}>
         <AnimatedDots />
         {children}
       </body>
