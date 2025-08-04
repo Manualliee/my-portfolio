@@ -83,6 +83,14 @@ export default function Navbar({ visible = true }) {
           >
             Contact
           </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="animated-underline relative transition-colors px-4 py-3 md:p-0 block md:inline"
+          >
+            View Resume
+          </a>
         </nav>
       </div>
 
@@ -133,6 +141,14 @@ export default function Navbar({ visible = true }) {
                 className="animated-underline transition-colors px-4 py-3 block"
               >
                 Contact
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="animated-underline transition-colors px-4 py-3 block"
+              >
+                View Resume
               </a>
             </div>
           </motion.nav>

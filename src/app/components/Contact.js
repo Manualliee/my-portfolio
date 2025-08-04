@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IoDocumentTextSharp } from "react-icons/io5";
 import { motion } from "motion/react";
 
 export default function Contact() {
@@ -55,6 +56,23 @@ export default function Contact() {
           className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-foreground/10 backdrop-blur-md shadow-md transition-all duration-50"
         >
           <FaLinkedin size={45} />
+        </motion.a>
+
+        <motion.a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit my LinkedIn profile"
+          title="My Resume"
+          whileHover={{
+            scale: 1.18,
+            boxShadow: "0 4px 24px 0 rgba(34,197,94,0.75)",
+            rotate: 8,
+          }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-foreground/10 backdrop-blur-md shadow-md transition-all duration-50"
+        >
+          <IoDocumentTextSharp size={45} />
         </motion.a>
       </div>
     </motion.div>
