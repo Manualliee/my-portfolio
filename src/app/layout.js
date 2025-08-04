@@ -22,10 +22,11 @@ export const metadata = {
   ],
   authors: [{ name: "Manuel F. Venegas" }],
   creator: "Manuel F. Venegas",
+  metadataBase: new URL("https://my-portfolio-hazel-kappa-55.vercel.app/"),
   openGraph: {
     title: "Manuel Venegas | Portfolio",
     description: "Frontend developer portfolio for Manuel Venegas.",
-    images: ["/og-image.png"], // Place this image in your public folder
+    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
