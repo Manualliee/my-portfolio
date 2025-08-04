@@ -12,9 +12,9 @@ export default function AboutMe() {
       viewport={{ amount: 0.5 }}
     >
       <div className="max-w-2xl text-left text-lg p-8 shadow-lg">
-        <h2 className="mb-4">Who Am I?</h2>
+        <h2 className="mb-4">What Am I?</h2>
         <p>
-          I&#39;m Manuel—a self-driven and passionate frontend developer. I love
+          A self-driven and passionate frontend developer. I love
           bringing ideas to life with code, and I&#39;m always exploring new
           ways to make web experiences more interactive and engaging. I&#39;m
           eager to join a team where I can learn, grow, and contribute as a
@@ -50,7 +50,6 @@ export default function AboutMe() {
               width={256}
               height={256}
               className="object-cover w-64 h-64 transition-transform duration-300 group-hover:scale-105"
-              priority
             />
           </a>
         </div>

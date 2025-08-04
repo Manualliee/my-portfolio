@@ -11,6 +11,8 @@ import { FaGitAlt } from "react-icons/fa";
 import { GrGraphQl } from "react-icons/gr";
 import { PiFigmaLogoFill } from "react-icons/pi";
 import { TbBrandThreejs } from "react-icons/tb";
+import { RiTailwindCssFill } from "react-icons/ri";
+
 
 // List of icons and their colors
 const icons = [
@@ -28,6 +30,7 @@ const icons = [
   { icon: <GrGraphQl color="#e10098" size={45} />, label: "GraphQL" },
   { icon: <PiFigmaLogoFill color="#f24e1e" size={45} />, label: "Figma" },
   { icon: <TbBrandThreejs color="#ffffff" size={45} />, label: "Three.js" },
+  { icon: <RiTailwindCssFill color="#38bdf8" size={45} />, label: "Tailwind CSS" },
 ];
 
 // Distribute icons evenly on the sphere using spherical coordinates
