@@ -63,21 +63,21 @@ export default function Home() {
 
         <section
           id="about"
-          className="max-w-5xl mx-auto w-full px-4 py-12 flex flex-col items-center"
+          className="max-w-5xl mx-auto w-full px-4 py-35 flex flex-col items-center"
         >
           <AboutMe />
         </section>
 
         <section
           id="skills"
-          className="max-w-5xl mx-auto w-full px-4 py-12 flex flex-col items-center"
+          className="max-w-5xl mx-auto w-full px-4 py-35 flex flex-col items-center"
         >
           <Skills />
         </section>
 
         <section
           id="projects"
-          className="max-w-5xl mx-auto w-full px-4 py-12 flex flex-col items-center"
+          className="max-w-5xl mx-auto w-full px-4 py-35 flex flex-col items-center"
         >
           <Projects />
         </section>

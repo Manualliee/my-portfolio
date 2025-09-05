@@ -1,4 +1,4 @@
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import logo from "@/../public/assets/logo.svg";
@@ -7,6 +7,12 @@ export default function Navbar({ visible = true }) {
   const [open, setOpen] = useState(false);
   const linksRef = useRef(null);
   const [linksHeight, setLinksHeight] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  // Set mounted to true after client mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Measure the height of the links for smooth animation
   useLayoutEffect(() => {
@@ -96,7 +102,7 @@ export default function Navbar({ visible = true }) {
 
       {/* Mobile nav links */}
       <AnimatePresence initial={false}>
-        {open && (
+        {open && mounted && (
           <motion.nav
             key="mobile-nav"
             initial={{ height: 0, opacity: 0 }}
