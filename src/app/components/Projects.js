@@ -1,25 +1,32 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Anicentral from "@/../public/assets/Anicentral.jpg";
+import WeatherApp from "@/../public/assets/WeatherApp.png";
 import { IoLogoVercel } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { GrGraphQl } from "react-icons/gr";
+import { FaHtml5 } from "react-icons/fa";
+import { IoLogoCss3 } from "react-icons/io";
+import { IoLogoJavascript } from "react-icons/io5";
+import { TiWeatherCloudy } from "react-icons/ti";
+import { IoLocationOutline } from "react-icons/io5";
+import { SiLeaflet } from "react-icons/si";
 
 export default function Projects() {
   return (
     <motion.div
-      className="w-full flex flex-col justify-evenly items-center min-h-screen gap-6"
+      className="w-full flex flex-col items-center gap-6"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 60 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      viewport={{ amount: 0.5, once: false }}
+      viewport={{ amount: 0.2, once: false }}
     >
       <h2>My Projects</h2>
-      <div className="w-[90%] flex justify-between">
+      <div className="w-[90%] flex flex-col gap-20">
         <div className="flex flex-col lg:flex-row justify-between gap-20 w-full">
           <div className="flex justify-center items-center w-full lg:w-1/2">
             <motion.a
@@ -103,6 +110,103 @@ export default function Projects() {
               <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
                 <GrGraphQl className="inline" />
                 Anilist API
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <IoLogoVercel className="inline" />
+                Vercel
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row justify-between gap-20 w-full mt-16">
+          <div className="flex justify-center items-center w-full lg:w-1/2">
+            <motion.a
+              href="https://weather-app-gamma-three-99.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Weather App"
+              title="Visit Weather App"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative w-full aspect-video max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-xl overflow-hidden mx-auto block"
+            >
+              <Image
+                src={WeatherApp}
+                alt="Weather App Project"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                className="object-fit"
+              />
+            </motion.a>
+          </div>
+
+          <div className="flex flex-col justify-evenly items-start gap-4 w-full lg:w-1/2 mt-8 lg:mt-0">
+            <h3>Weather App</h3>
+            <div className="flex justify-start gap-10">
+              <motion.a
+                href="https://weather-app-gamma-three-99.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Weather App"
+                title="Visit Weather App"
+                whileHover={{
+                  scale: 1.18,
+                  boxShadow: "0 4px 24px 0 rgba(34,197,94,0.75)",
+                  rotate: -8,
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-foreground/10 backdrop-blur-md shadow-md transition-all duration-50"
+              >
+                <IoLogoVercel color="#fff" size={32} />
+              </motion.a>
+
+              <motion.a
+                href="https://github.com/Manualliee/weather-app"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Weather App on GitHub"
+                title="View Weather App on GitHub"
+                whileHover={{
+                  scale: 1.18,
+                  boxShadow: "0 4px 24px 0 rgba(34,197,94,0.75)",
+                  rotate: 8,
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-foreground/10 backdrop-blur-md shadow-md transition-all duration-50"
+              >
+                <FaGithub color="#fff" size={32} />
+              </motion.a>
+            </div>
+
+            <p>
+              A sleek weather app that lets users search for current weather
+              conditions of cities worldwide. Built with plain HTML, CSS, JS. Alongside with technologies like Weather API, LeafletJS, and Geolocation API.
+            </p>
+
+            <ul className="flex flex-wrap gap-2 text-sm">
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <FaHtml5 className="inline" />
+                HTML
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <IoLogoCss3 className="inline" />
+                CSS
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <IoLogoJavascript className="inline" />
+                JavaScript
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <TiWeatherCloudy className="inline" />
+                Weather API
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <IoLocationOutline className="inline" />
+                Geolocation API
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <SiLeaflet className="inline" />
+                LeafletJS
               </li>
               <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
                 <IoLogoVercel className="inline" />
