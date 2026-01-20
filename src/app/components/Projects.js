@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Anicentral from "@/../public/assets/Anicentral.jpg";
 import WeatherApp from "@/../public/assets/WeatherApp.png";
+import GameHub from "@/../public/assets/gamehubScreenshot.png";
 import { IoLogoVercel } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
@@ -14,6 +15,8 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { TiWeatherCloudy } from "react-icons/ti";
 import { IoLocationOutline } from "react-icons/io5";
 import { SiLeaflet } from "react-icons/si";
+import { RiSupabaseFill } from "react-icons/ri";
+import { IoGameController } from "react-icons/io5";
 
 export default function Projects() {
   return (
@@ -121,7 +124,7 @@ export default function Projects() {
         <div className="flex flex-col lg:flex-row justify-between gap-20 w-full mt-16">
           <div className="flex justify-center items-center w-full lg:w-1/2">
             <motion.a
-              href="https://weather-app-gamma-three-99.vercel.app/"
+              href="https://weather-app-gamma-three-99.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit Weather App"
@@ -144,7 +147,7 @@ export default function Projects() {
             <h3>Weather App</h3>
             <div className="flex justify-start gap-10">
               <motion.a
-                href="https://weather-app-gamma-three-99.vercel.app/"
+                href="https://weather-app-gamma-three-99.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Weather App"
@@ -180,7 +183,9 @@ export default function Projects() {
 
             <p>
               A sleek weather app that lets users search for current weather
-              conditions of cities worldwide. Built with plain HTML, CSS, JS. Alongside with technologies like Weather API, LeafletJS, and Geolocation API.
+              conditions of cities worldwide. Built with plain HTML, CSS, JS.
+              Alongside with technologies like Weather API, LeafletJS, and
+              Geolocation API.
             </p>
 
             <ul className="flex flex-wrap gap-2 text-sm">
@@ -211,6 +216,98 @@ export default function Projects() {
               <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
                 <IoLogoVercel className="inline" />
                 Vercel
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row justify-between gap-20 w-full">
+          <div className="flex justify-center items-center w-full lg:w-1/2">
+            <motion.a
+              href="https://gamehub-ten-murex.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit GameHub"
+              title="Visit GameHub"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative w-full aspect-video max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-xl overflow-hidden mx-auto block"
+            >
+              <Image
+                src={GameHub}
+                alt="GameHub Project"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                className="object-fit"
+              />
+            </motion.a>
+          </div>
+
+          <div className="flex flex-col justify-evenly items-start gap-4 w-full lg:w-1/2 mt-8 lg:mt-0">
+            <h3>GameHub</h3>
+            <div className="flex justify-start gap-10">
+              <motion.a
+                href="https://gamehub-ten-murex.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit GameHub"
+                title="Visit GameHub"
+                whileHover={{
+                  scale: 1.18,
+                  boxShadow: "0 4px 24px 0 rgba(34,197,94,0.75)",
+                  rotate: -8,
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-foreground/10 backdrop-blur-md shadow-md transition-all duration-50"
+              >
+                <IoLogoVercel color="#fff" size={32} />
+              </motion.a>
+
+              <motion.a
+                href="https://github.com/Manualliee/gamehub"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View GameHub on GitHub"
+                title="View GameHub on GitHub"
+                whileHover={{
+                  scale: 1.18,
+                  boxShadow: "0 4px 24px 0 rgba(34,197,94,0.75)",
+                  rotate: 8,
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-foreground/10 backdrop-blur-md shadow-md transition-all duration-50"
+              >
+                <FaGithub color="#fff" size={32} />
+              </motion.a>
+            </div>
+
+            <p>
+              A full-stack mock ecommerce gaming web app that allows users to search and explor games from various platforms. Users can create their own account via Supabase, add games to their cart, place their order, and view their order history and their games in their library. Built with Next.js, Tailwind CSS, Framer Motion, Supabase, and RAWG API.
+            </p>
+
+            <ul className="flex flex-wrap gap-2 text-sm">
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <SiNextdotjs className="inline" />
+                Next.js
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <RiTailwindCssFill className="inline" />
+                Tailwind CSS
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <TbBrandFramerMotion className="inline" />
+                Framer Motion
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <RiSupabaseFill className="inline" />
+                Supabase
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <IoLogoVercel className="inline" />
+                Vercel
+              </li>
+              <li className="flex items-center gap-1 bg-foreground/10 px-3 py-1 rounded-full shadow-sm border border-foreground/10">
+                <IoGameController className="inline" />
+                RAWG API
               </li>
             </ul>
           </div>
